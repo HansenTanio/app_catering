@@ -1,6 +1,4 @@
-import 'package:cateringapp/initialScreen/LoginPage.dart';
 import 'package:flutter/material.dart';
-
 import 'LupaKataSandi2.dart';
 
 class LupaKataSandi extends StatefulWidget {
@@ -15,24 +13,9 @@ class _LupaKataSandiState extends State<LupaKataSandi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return LoginPage();
-                  }));
-                },
-                icon: Icon(Icons.arrow_back)),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Image(
-                  image: AssetImage('assets/images/logo-darkmode.png'),
-                  width: 100),
-            ),
-          ],
-        ),
-        backgroundColor: Color.fromARGB(255, 1, 67, 121),
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -41,11 +24,11 @@ class _LupaKataSandiState extends State<LupaKataSandi> {
           children: [
             Center(
                 child: Text(
-              "Lupa Kata Sandi",
+              "Masukkan Email",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             )),
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             TextFormField(
               decoration: InputDecoration(

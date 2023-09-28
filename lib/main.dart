@@ -1,4 +1,7 @@
 import 'package:cateringapp/frontend/InitialScreen/SplashPage.dart';
+import 'package:cateringapp/frontend/initialScreen/LupaKataSandi.dart';
+import 'package:cateringapp/frontend/initialScreen/LupaKataSandi2.dart';
+import 'package:cateringapp/frontend/initialScreen/LupaKataSandi3.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +23,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.green,
       ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: LupaKataSandi(),
     );
   }
 }

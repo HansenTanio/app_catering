@@ -1,4 +1,4 @@
-import 'package:cateringapp/initialScreen/LupaKataSandi.dart';
+import 'package:cateringapp/frontend/initialScreen/LupaKataSandi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import '../screen/MyHomePage.dart';
@@ -56,8 +56,12 @@ class _LoginPageState extends State<LoginPage> {
       String password = _passwordController.text;
 
       if (_validatePassword(password)) {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const MyHomePage()));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MyHomePage(),
+          ),
+        );
       }
     }
   }
