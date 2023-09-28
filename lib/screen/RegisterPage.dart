@@ -129,17 +129,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Image(
-                  image: AssetImage('assets/images/logo-darkmode.png'),
-                  width: 100),
-            ),
-          ],
-        ),
-        backgroundColor: Color.fromARGB(255, 1, 67, 121),
+        
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,

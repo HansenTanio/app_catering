@@ -1,8 +1,6 @@
 import 'package:cateringapp/screen/FirstPage.dart';
-import 'package:cateringapp/screen/LupaKataSandi.dart';
+import 'package:cateringapp/screen/LoginPage.dart';
 import 'package:flutter/material.dart';
-import 'screen/LoginPage.dart';
-import 'screen/RegisterPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +17,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: FirstPage()),
+      home: LoginPage(),
     );
   }
 }

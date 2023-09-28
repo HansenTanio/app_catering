@@ -13,9 +13,7 @@ class LupaKataSandi extends StatefulWidget {
 class _LupaKataSandiState extends State<LupaKataSandi> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Row(
             children: [
@@ -87,7 +85,6 @@ class _LupaKataSandiState extends State<LupaKataSandi> {
             ],
           ),
         ),
-      ),
     );
   }
 }
