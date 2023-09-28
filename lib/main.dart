@@ -1,7 +1,4 @@
-import 'package:cateringapp/InitialScreen/SplashPage.dart';
-import 'package:cateringapp/initialScreen/FirstPage.dart';
-import 'package:cateringapp/initialScreen/LoginPage.dart';
-import 'package:cateringapp/initialScreen/RegisterPage.dart';
+import 'package:cateringapp/frontend/InitialScreen/SplashPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
