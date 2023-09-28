@@ -1,4 +1,4 @@
-import 'package:cateringapp/initialScreen/FirstPage.dart';
+import 'package:cateringapp/frontend/initialScreen/FirstPage.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

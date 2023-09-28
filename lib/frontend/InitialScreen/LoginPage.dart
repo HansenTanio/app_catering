@@ -1,7 +1,7 @@
 import 'package:cateringapp/frontend/initialScreen/LupaKataSandi.dart';
+import 'package:cateringapp/frontend/initialScreen/FirstPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import '../screen/MyHomePage.dart';
 import 'RegisterPage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const MyHomePage(),
+            builder: (context) => const FirstPage(),
           ),
         );
       }
@@ -211,7 +211,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text('atau daftar dengan'),
+                    Text('atau masuk dengan'),
                     SizedBox(
                       height: 20,
                     ),
