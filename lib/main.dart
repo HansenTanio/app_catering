@@ -1,5 +1,7 @@
-import 'package:cateringapp/screen/FirstPage.dart';
-import 'package:cateringapp/screen/LoginPage.dart';
+import 'package:cateringapp/InitialScreen/SplashPage.dart';
+import 'package:cateringapp/initialScreen/FirstPage.dart';
+import 'package:cateringapp/initialScreen/LoginPage.dart';
+import 'package:cateringapp/initialScreen/RegisterPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +23,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.green,
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: SplashScreen(),
     );
   }
 }

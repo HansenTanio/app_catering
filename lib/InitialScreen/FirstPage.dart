@@ -1,5 +1,5 @@
-import 'package:cateringapp/screen/LoginPage.dart';
-import 'package:cateringapp/screen/RegisterPage.dart';
+import 'package:cateringapp/initialScreen/LoginPage.dart';
+import 'package:cateringapp/initialScreen/RegisterPage.dart';
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {

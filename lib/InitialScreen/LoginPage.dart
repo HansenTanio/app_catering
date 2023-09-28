@@ -1,7 +1,7 @@
 import 'package:cateringapp/screen/LupaKataSandi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'MyHomePage.dart';
+import '../screen/MyHomePage.dart';
 import 'RegisterPage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -206,7 +206,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text('atau masuk dengan'),
+                    Text('atau daftar dengan'),
                     SizedBox(
                       height: 20,
                     ),

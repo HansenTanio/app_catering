@@ -129,11 +129,12 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -265,11 +266,10 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      minimumSize: Size(300, 50.0),
+                      minimumSize: Size(400, 50.0),
                       maximumSize: Size(MediaQuery.of(context).size.width, 50),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
@@ -317,7 +317,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           style: TextStyle(
                             color: Theme.of(context).textTheme.bodyText1!.color,
                             fontSize: 16,
-                            decoration: TextDecoration.none,
+                            decoration: TextDecoration.underline,
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
@@ -332,6 +332,49 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               ),
+            ),
+            Divider(),
+            SizedBox(
+              height: 10,
+            ),
+            Text('atau masuk dengan'),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 31,
+                  backgroundColor: Colors.black,
+                  child: CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Image.asset('logo/google.png'),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                CircleAvatar(
+                  radius: 31,
+                  backgroundColor: Colors.black,
+                  child: CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Image.asset('logo/facebook.png'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 30,
             ),
           ],
         ),
