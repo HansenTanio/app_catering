@@ -338,7 +338,7 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               height: 10,
             ),
-            Text('atau masuk dengan'),
+            Text('atau daftar dengan'),
             SizedBox(
               height: 20,
             ),
