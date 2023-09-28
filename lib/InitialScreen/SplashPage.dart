@@ -27,11 +27,14 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('logo/logo-default.png'),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 100.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('logo/logo.png'),
+            ],
+          ),
         ),
       ),
     );

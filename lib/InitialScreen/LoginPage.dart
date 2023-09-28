@@ -1,4 +1,4 @@
-import 'package:cateringapp/screen/LupaKataSandi.dart';
+import 'package:cateringapp/initialScreen/LupaKataSandi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import '../screen/MyHomePage.dart';
@@ -66,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
