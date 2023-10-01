@@ -1,8 +1,9 @@
 import 'package:cateringapp/frontend/initialScreen/LupaKataSandi.dart';
-import 'package:cateringapp/frontend/initialScreen/FirstPage.dart';
+import 'package:cateringapp/frontend/screen/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'RegisterPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,10 +14,44 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool visibilityPass = false;
-
+  final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   final _passwordFocusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
+  late SharedPreferences prefs;
+  final String _keyUsername = "username";
+  final String _keyPassword = "password";
+  String? _usernameValue;
+  String? _passwordValue;
+
+  void _loadData() async {
+    prefs = await SharedPreferences.getInstance();
+    _passwordValue = prefs.getString(_keyPassword);
+    _usernameValue = prefs.getString(_keyUsername);
+    if (_usernameValue != null && _passwordValue != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              MyHomePage(username: _usernameValue!, password: _passwordValue!),
+        ),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _setLogin(String? username, String? password) async {
+    prefs = await SharedPreferences.getInstance();
+    if (username != null && password != null) {
+      prefs.setString(_keyUsername, username);
+      prefs.setString(_keyPassword, password);
+    }
+  }
 
   @override
   void dispose() {
@@ -49,17 +84,23 @@ class _LoginPageState extends State<LoginPage> {
     return true;
   }
 
-  void _login() {
+  void _login() async {
     final form = _formKey.currentState;
     if (form != null && form.validate()) {
       form.save();
-      String password = _passwordController.text;
+      await _setLogin(_usernameController.text, _passwordController.text);
+      print("Sesudah _setLogin");
+      print(_usernameValue);
+      print(_passwordValue);
 
-      if (_validatePassword(password)) {
+      if (_validatePassword(_passwordController.text)) {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const FirstPage(),
+            builder: (context) => MyHomePage(
+              username: _usernameController.text,
+              password: _passwordController.text,
+            ),
           ),
         );
       }
@@ -93,6 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                   )),
                 ),
                 TextFormField(
+                  controller: _usernameController,
                   decoration: InputDecoration(
                     labelText: 'Email/Nama Pengguna',
                     icon: Icon(
