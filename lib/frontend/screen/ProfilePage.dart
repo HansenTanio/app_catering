@@ -1,12 +1,43 @@
+import 'package:cateringapp/frontend/InitialScreen/FirstPage.dart';
 import 'package:flutter/material.dart';
-
 import 'SettingPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class ProfilePage extends StatelessWidget {
-  final String username = "Riska";
-  final String email = "Riska@gmail.com";
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
-  void _logout(BuildContext context) {}
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  late SharedPreferences prefs;
+  final String _keyUsername = "username";
+  final String _keyPassword = "password";
+  String? _usernameValue;
+
+  void _loadData() async {
+    prefs = await SharedPreferences.getInstance();
+    _usernameValue = prefs.getString(_keyUsername);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _logout() async {
+    prefs = await SharedPreferences.getInstance();
+    prefs.setString(_keyUsername, "");
+    prefs.setString(_keyPassword, "");
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FirstPage(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +51,7 @@ class ProfilePage extends StatelessWidget {
               'Nama Pengguna',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            subtitle: Text(username),
+            subtitle: Text(_usernameValue.toString()),
           ),
           Divider(),
           ListTile(
@@ -29,7 +60,8 @@ class ProfilePage extends StatelessWidget {
               'Email',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            subtitle: Text(email),
+            subtitle:
+                Text("${_usernameValue.toString().toLowerCase()}@gmail.com"),
           ),
           SizedBox(height: 16.0),
           ElevatedButton(
@@ -48,7 +80,7 @@ class ProfilePage extends StatelessWidget {
             height: 20,
           ),
           ElevatedButton(
-            onPressed: () => _logout(context),
+            onPressed: () => _logout(),
             child: Text('Logout'),
           ),
         ],

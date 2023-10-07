@@ -12,7 +12,6 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
-  bool visibilityPass = false;
   late SharedPreferences prefs;
   final String _keyUsername = "username";
   final String _keyPassword = "password";
@@ -23,7 +22,10 @@ class _FirstPageState extends State<FirstPage> {
     prefs = await SharedPreferences.getInstance();
     _passwordValue = prefs.getString(_keyPassword);
     _usernameValue = prefs.getString(_keyUsername);
-    if (_usernameValue != null && _passwordValue != null) {
+    if (_usernameValue != null &&
+        _passwordValue != null &&
+        _usernameValue != '' &&
+        _passwordValue != '') {
       Navigator.push(
         context,
         MaterialPageRoute(

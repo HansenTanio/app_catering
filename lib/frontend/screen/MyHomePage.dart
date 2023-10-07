@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import '../widget/GambarCorusel.dart';
-import '../widget/KotakMenu1.dart';
+// import '../widget/KotakMenu1.dart';
 import 'BerlanggananPage.dart';
 import 'ProfilePage.dart';
 
