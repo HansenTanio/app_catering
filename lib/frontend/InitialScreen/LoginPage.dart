@@ -24,27 +24,6 @@ class _LoginPageState extends State<LoginPage> {
   String? _usernameValue;
   String? _passwordValue;
 
-  void _loadData() async {
-    prefs = await SharedPreferences.getInstance();
-    _passwordValue = prefs.getString(_keyPassword);
-    _usernameValue = prefs.getString(_keyUsername);
-    if (_usernameValue != null && _passwordValue != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>
-              MyHomePage(username: _usernameValue!, password: _passwordValue!),
-        ),
-      );
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _loadData();
-  }
-
   Future<void> _setLogin(String? username, String? password) async {
     prefs = await SharedPreferences.getInstance();
     if (username != null && password != null) {
@@ -98,9 +77,9 @@ class _LoginPageState extends State<LoginPage> {
           context,
           MaterialPageRoute(
             builder: (context) => MyHomePage(
-              username: _usernameController.text,
-              password: _passwordController.text,
-            ),
+                // username: _usernameController.text,
+                // password: _passwordController.text,
+                ),
           ),
         );
       }

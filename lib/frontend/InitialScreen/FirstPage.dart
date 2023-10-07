@@ -1,6 +1,8 @@
 import 'package:cateringapp/frontend/initialScreen/LoginPage.dart';
 import 'package:cateringapp/frontend/initialScreen/RegisterPage.dart';
+import 'package:cateringapp/frontend/screen/MyHomePage.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -10,6 +12,33 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
+  bool visibilityPass = false;
+  late SharedPreferences prefs;
+  final String _keyUsername = "username";
+  final String _keyPassword = "password";
+  String? _usernameValue;
+  String? _passwordValue;
+
+  void _loadData() async {
+    prefs = await SharedPreferences.getInstance();
+    _passwordValue = prefs.getString(_keyPassword);
+    _usernameValue = prefs.getString(_keyUsername);
+    if (_usernameValue != null && _passwordValue != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MyHomePage(),
+        ),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
