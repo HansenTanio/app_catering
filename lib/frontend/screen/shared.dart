@@ -26,24 +26,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text(username),
+            Text(password),
+            ElevatedButton(
+              onPressed: () {
+                print("hello");
+              },
+              child: Text("Hello"),
+            )
+          ],
         ),
-        body: Center(
-          child: Column(
-            children: [
-              Text(username),
-              Text(password),
-              ElevatedButton(
-                onPressed: () {
-                  print("hello");
-                },
-                child: Text("Hello"),
-              )
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }

@@ -183,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 20),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(400, 50.0),
+                        minimumSize: Size(300, 50.0),
                         maximumSize:
                             Size(MediaQuery.of(context).size.width, 50),
                         shape: RoundedRectangleBorder(
@@ -247,7 +247,7 @@ class _LoginPageState extends State<LoginPage> {
                             backgroundColor: Colors.white,
                             child: Padding(
                               padding: const EdgeInsets.all(15.0),
-                              child: Image.asset('logo/google.png'),
+                              child: Image.asset('assets/logo/google.png'),
                             ),
                           ),
                         ),
@@ -262,7 +262,7 @@ class _LoginPageState extends State<LoginPage> {
                             backgroundColor: Colors.white,
                             child: Padding(
                               padding: const EdgeInsets.all(15.0),
-                              child: Image.asset('logo/facebook.png'),
+                              child: Image.asset('assets/logo/facebook.png'),
                             ),
                           ),
                         ),

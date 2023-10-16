@@ -68,7 +68,7 @@ class CateringPackageCard extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'images/$image'), // Ganti dengan path gambar yang sesuai
+                'assets/images/$image'), // Ganti dengan path gambar yang sesuai
             fit: BoxFit.cover,
           ),
         ),

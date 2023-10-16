@@ -4,9 +4,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 class GambarCarousel extends StatelessWidget {
   GambarCarousel({super.key});
   final List<String> imagesCarousel = [
-    "images/promo1.png",
-    "images/promo2.png",
-    "images/promo3.png"
+    "assets/images/promo1.png",
+    "assets/images/promo2.png",
+    "assets/images/promo3.png"
   ];
   @override
   Widget build(BuildContext context) {

@@ -133,251 +133,256 @@ class _RegisterPageState extends State<RegisterPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              decoration: BoxDecoration(shape: BoxShape.circle),
-              child: Center(
-                  child: Text(
-                "Daftar",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-              )),
-            ),
-            SizedBox(height: 15),
-            TextField(
-              onChanged: _handleUsernameChange,
-              decoration: InputDecoration(
-                labelText: "Nama akun",
-                icon: Icon(
-                  Icons.people,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                decoration: BoxDecoration(shape: BoxShape.circle),
+                child: Center(
+                    child: Text(
+                  "Daftar",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                )),
               ),
-            ),
-            SizedBox(height: 15),
-            TextFormField(
-              readOnly: true,
-              controller: _dateController,
-              onTap: _setDatePicker,
-              decoration: InputDecoration(
-                labelText: "Tanggal Lahir",
-                icon: Icon(
-                  Icons.date_range,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
-            TextField(
-              decoration: InputDecoration(
-                labelText: "Email",
-                icon: Icon(
-                  Icons.email,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
-            TextField(
-              obscureText: !visibilityPass,
-              onChanged: _handlePasswordChange,
-              decoration: InputDecoration(
-                labelText: "Kata Sandi",
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      visibilityPass = !visibilityPass;
-                    });
-                  },
-                  icon: visibilityPass
-                      ? Icon(Icons.visibility)
-                      : Icon(Icons.visibility_off),
-                ),
-                icon: Icon(
-                  Icons.settings,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
-            TextField(
-              keyboardType: TextInputType.phone,
-              onChanged: _handlePhoneChange,
-              decoration: InputDecoration(
-                labelText: "No.Telp",
-                icon: Icon(
-                  Icons.phone,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 33.0),
-              child: Column(
-                children: [
-                  Padding(padding: EdgeInsets.only(top: 20)),
-                  Row(
-                    children: [
-                      Radio<int>(
-                        value: 0,
-                        groupValue: _radioValue,
-                        onChanged: _handleRadioValueChange,
-                      ),
-                      SizedBox(width: 8),
-                      Text(
-                        'Laki-Laki',
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText2!.color,
-                        ),
-                      ),
-                    ],
+              SizedBox(height: 15),
+              TextField(
+                onChanged: _handleUsernameChange,
+                decoration: InputDecoration(
+                  labelText: "Nama akun",
+                  icon: Icon(
+                    Icons.people,
+                    color: Theme.of(context).iconTheme.color,
                   ),
-                  Row(
-                    children: [
-                      Radio<int>(
-                        value: 1,
-                        groupValue: _radioValue,
-                        onChanged: _handleRadioValueChange,
-                      ),
-                      SizedBox(width: 8),
-                      Text(
-                        'Perempuan',
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText2!.color,
-                        ),
-                      ),
-                    ],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  SizedBox(height: 10),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(400, 50.0),
-                      maximumSize: Size(MediaQuery.of(context).size.width, 50),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                    ),
+                ),
+              ),
+              SizedBox(height: 15),
+              TextFormField(
+                readOnly: true,
+                controller: _dateController,
+                onTap: _setDatePicker,
+                decoration: InputDecoration(
+                  labelText: "Tanggal Lahir",
+                  icon: Icon(
+                    Icons.date_range,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+              SizedBox(height: 15),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: "Email",
+                  icon: Icon(
+                    Icons.email,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+              SizedBox(height: 15),
+              TextField(
+                obscureText: !visibilityPass,
+                onChanged: _handlePasswordChange,
+                decoration: InputDecoration(
+                  labelText: "Kata Sandi",
+                  suffixIcon: IconButton(
                     onPressed: () {
-                      if (_username == null ||
-                          _username!.isEmpty ||
-                          _dateController.text.isEmpty) {
-                        _showEmptyFieldErrorDialog();
-                      } else if (_password != null && _password!.length >= 10) {
-                        if (_phone != null &&
-                            _phone!.length <= 15 &&
-                            RegExp(r'^[0-9]+$').hasMatch(_phone!)) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return LoginPage();
-                            }),
-                          );
-                        } else {
-                          _showPhoneErrorDialog();
-                        }
-                      } else {
-                        _showPasswordErrorDialog();
-                      }
+                      setState(() {
+                        visibilityPass = !visibilityPass;
+                      });
                     },
-                    child: Text('Daftar'),
+                    icon: visibilityPass
+                        ? Icon(Icons.visibility)
+                        : Icon(Icons.visibility_off),
                   ),
-                  SizedBox(height: 40),
-                  RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
+                  icon: Icon(
+                    Icons.settings,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+              SizedBox(height: 15),
+              TextField(
+                keyboardType: TextInputType.phone,
+                onChanged: _handlePhoneChange,
+                decoration: InputDecoration(
+                  labelText: "No.Telp",
+                  icon: Icon(
+                    Icons.phone,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 33.0),
+                child: Column(
+                  children: [
+                    Padding(padding: EdgeInsets.only(top: 20)),
+                    Row(
                       children: [
-                        TextSpan(
-                          text: "Sudah memiliki akun ? ",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                            decoration: TextDecoration.none,
-                          ),
+                        Radio<int>(
+                          value: 0,
+                          groupValue: _radioValue,
+                          onChanged: _handleRadioValueChange,
                         ),
-                        TextSpan(
-                          text: 'Masuk',
+                        SizedBox(width: 8),
+                        Text(
+                          'Laki-Laki',
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1!.color,
-                            fontSize: 16,
-                            decoration: TextDecoration.underline,
+                            color: Theme.of(context).textTheme.bodyText2!.color,
                           ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return LoginPage();
-                              }));
-                            },
                         ),
                       ],
+                    ),
+                    Row(
+                      children: [
+                        Radio<int>(
+                          value: 1,
+                          groupValue: _radioValue,
+                          onChanged: _handleRadioValueChange,
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          'Perempuan',
+                          style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText2!.color,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: Size(300, 50.0),
+                        maximumSize:
+                            Size(MediaQuery.of(context).size.width, 50),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      onPressed: () {
+                        if (_username == null ||
+                            _username!.isEmpty ||
+                            _dateController.text.isEmpty) {
+                          _showEmptyFieldErrorDialog();
+                        } else if (_password != null &&
+                            _password!.length >= 10) {
+                          if (_phone != null &&
+                              _phone!.length <= 15 &&
+                              RegExp(r'^[0-9]+$').hasMatch(_phone!)) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return LoginPage();
+                              }),
+                            );
+                          } else {
+                            _showPhoneErrorDialog();
+                          }
+                        } else {
+                          _showPasswordErrorDialog();
+                        }
+                      },
+                      child: Text('Daftar'),
+                    ),
+                    SizedBox(height: 40),
+                    RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Sudah memiliki akun ? ",
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 16,
+                              decoration: TextDecoration.none,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Masuk',
+                            style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color,
+                              fontSize: 16,
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return LoginPage();
+                                }));
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Divider(),
+              SizedBox(
+                height: 10,
+              ),
+              Text('atau daftar dengan'),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 31,
+                    backgroundColor: Colors.black,
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Image.asset('assets/logo/google.png'),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  CircleAvatar(
+                    radius: 31,
+                    backgroundColor: Colors.black,
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Image.asset('assets/logo/facebook.png'),
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-            Divider(),
-            SizedBox(
-              height: 10,
-            ),
-            Text('atau daftar dengan'),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 31,
-                  backgroundColor: Colors.black,
-                  child: CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Image.asset('logo/google.png'),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                CircleAvatar(
-                  radius: 31,
-                  backgroundColor: Colors.black,
-                  child: CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Image.asset('logo/facebook.png'),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 30,
-            ),
-          ],
+              SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
         ),
       ),
     );

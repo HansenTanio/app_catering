@@ -1,8 +1,16 @@
+import 'package:cateringapp/backend/Provider/MenuProvider.dart';
 import 'package:cateringapp/frontend/InitialScreen/SplashPage.dart';
+import 'package:cateringapp/frontend/screen/MyHomePage.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => MenuProvider(),
+      child: MyApp(), // Replace with your app's widget
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {

@@ -47,7 +47,7 @@ class _FirstPageState extends State<FirstPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/background.jpg"),
+            image: AssetImage("assets/images/background.jpg"),
             fit: BoxFit.fill,
           ),
         ),
@@ -58,13 +58,13 @@ class _FirstPageState extends State<FirstPage> {
               children: [
                 Image(
                   image: AssetImage(
-                    'logo/logo-darkmode.png',
+                    'assets/logo/logo-darkmode.png',
                   ),
                   width: 150,
                 ),
                 Image(
                   image: AssetImage(
-                    'logo/teks-darkmode.png',
+                    'assets/logo/teks-darkmode.png',
                   ),
                   width: 200,
                 ),
@@ -113,7 +113,7 @@ class _FirstPageState extends State<FirstPage> {
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size(200, 50.0),
+                          minimumSize: Size(170, 50.0),
                           maximumSize:
                               Size(MediaQuery.of(context).size.width, 50),
                           shape: RoundedRectangleBorder(
@@ -130,7 +130,7 @@ class _FirstPageState extends State<FirstPage> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size(200, 50.0),
+                          minimumSize: Size(170, 50.0),
                           maximumSize: Size(
                             MediaQuery.of(context).size.width,
                             50.0,

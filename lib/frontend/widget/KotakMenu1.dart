@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../data/data.dart';
+import '../../backend/data/Menu.dart';
 
 class KotakMenu1 extends StatefulWidget {
   final Menu menu;
@@ -41,7 +41,7 @@ class _KotakMenu1State extends State<KotakMenu1> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "${widget.menu.namaMasakan}",
+                      "${widget.menu.nama}",
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
