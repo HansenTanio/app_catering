@@ -31,8 +31,7 @@ class _KotakMenu1State extends State<KotakMenu1> {
                 topRight: Radius.circular(10.0), // Radius sudut atas kanan
               ),
               child: Image.asset(
-                'assets/images/kotak_extra.png',
-                // 'images/menu/${widget.menu.gambar}',
+                'assets/images/${widget.menu.gambar}',
                 fit: BoxFit.cover,
               ),
             ),

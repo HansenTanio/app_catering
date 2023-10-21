@@ -113,11 +113,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               } else if (snapshot.hasData) {
                                 return Column(
                                   children: [
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          print(snapshot.data);
-                                        },
-                                        child: Text("print")),
+                                    // ElevatedButton(
+                                    //     onPressed: () {
+                                    //       print(snapshot.data);
+                                    //     },
+                                    //     child: Text("print")),
                                     Container(
                                       height: 320,
                                       decoration: BoxDecoration(
@@ -130,10 +130,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 8.0),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8.0),
                                             child: Text(
-                                              "Menu Langganan regular : 400k",
+                                              "Menu Langganan Regular : 400k",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -143,8 +143,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           SingleChildScrollView(
                                             scrollDirection: Axis.horizontal,
                                             child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 20.0),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                vertical: 20.0,
+                                                horizontal: 5.0,
+                                              ),
                                               // child: Text("tes"),
                                               child: Row(
                                                 children: List.generate(
@@ -175,8 +178,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 8.0),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8.0),
                                             child: Text(
                                               "Menu Langganan Premium : 600k",
                                               style: TextStyle(
@@ -188,9 +191,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                           SingleChildScrollView(
                                             scrollDirection: Axis.horizontal,
                                             child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 20.0),
-                                              child: Text("Tes"),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                vertical: 20.0,
+                                                horizontal: 5.0,
+                                              ),
+                                              // child: Text("tes"),
+                                              child: Row(
+                                                children: List.generate(
+                                                  snapshot.data!.length,
+                                                  (index) => KotakMenu1(
+                                                    menu: snapshot.data![index],
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -212,10 +226,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 8.0),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8.0),
                                             child: Text(
-                                              "Menu Langganan keluarga : 1.2jt",
+                                              "Menu Langganan Keluarga : 1.2jt",
                                               style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold,
@@ -225,9 +239,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                           SingleChildScrollView(
                                             scrollDirection: Axis.horizontal,
                                             child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 20.0),
-                                              child: Text("Tes"),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                vertical: 20.0,
+                                                horizontal: 5.0,
+                                              ),
+                                              // child: Text("tes"),
+                                              child: Row(
+                                                children: List.generate(
+                                                  snapshot.data!.length,
+                                                  (index) => KotakMenu1(
+                                                    menu: snapshot.data![index],
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ],
