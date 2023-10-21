@@ -1,4 +1,4 @@
-import 'package:cateringapp/backend/data/Menu.dart';
+import 'package:cateringapp/backend/data/models/Menu.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

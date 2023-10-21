@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../backend/data/Menu.dart';
+import '../../backend/data/models/Menu.dart';
 
 class KotakMenu1 extends StatefulWidget {
   final Menu menu;

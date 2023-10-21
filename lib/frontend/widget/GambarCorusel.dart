@@ -17,7 +17,7 @@ class GambarCarousel extends StatelessWidget {
             return Container(
               width: MediaQuery.of(context).size.width,
               //margin: EdgeInsets.symmetric(horizontal: 2.0),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.grey,
               ),
               child: Image.asset(
@@ -33,8 +33,8 @@ class GambarCarousel extends StatelessWidget {
             viewportFraction: 1,
             enlargeCenterPage: true,
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 5),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayInterval: const Duration(seconds: 5),
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
             pauseAutoPlayOnTouch: true,
             aspectRatio: 2.0,

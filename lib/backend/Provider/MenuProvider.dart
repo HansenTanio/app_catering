@@ -12,7 +12,7 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:cateringapp/backend/data/Menu.dart';
+import 'package:cateringapp/backend/data/models/Menu.dart';
 
 class MenuProvider extends ChangeNotifier {
   List<Menu> lst = [];

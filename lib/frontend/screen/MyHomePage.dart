@@ -1,7 +1,9 @@
 import 'package:cateringapp/backend/data/Database.dart';
-import 'package:cateringapp/backend/data/Menu.dart';
+import 'package:cateringapp/backend/data/models/Menu.dart';
+import 'package:cateringapp/backend/data/models/MasakanRandom.dart';
 // import 'package:cateringapp/frontend/widget/DialogPilihAlamat.dart';
 import 'package:cateringapp/frontend/widget/KotakMenu1.dart';
+import 'package:cateringapp/frontend/widget/MasakanRandomPage.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/DialogPilihAlamat2.dart';
@@ -261,7 +263,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ],
                                 );
                               } else {
-                                return Text('Data not available');
+                                return Text('Data tidak tersedia');
                               }
                             },
                           ),
@@ -301,20 +303,33 @@ class _MyHomePageState extends State<MyHomePage> {
             child: BerlanggananPage(),
           ),
           Container(
+            child: MasakanRandomPage(),
+          ),
+          Container(
             child: ProfilePage(),
           ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        unselectedItemColor: Colors.black,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.sell_outlined), label: 'Berlangganan'),
+            icon: Icon(Icons.sell_outlined),
+            label: 'Berlangganan',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_sharp), label: 'Profile'),
+            icon: Icon(Icons.menu_book),
+            label: 'Tutorial',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_sharp),
+            label: 'Profile',
+          ),
         ],
         currentIndex: _selectedButtomIndex,
         selectedItemColor: Colors.green,
