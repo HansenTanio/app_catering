@@ -1,6 +1,7 @@
 import 'package:cateringapp/backend/data/Database.dart';
-import 'package:cateringapp/frontend/widget/DialogPilihAlamat.dart';
-import 'package:cateringapp/frontend/widget/Pengkategorian.dart';
+import 'package:cateringapp/backend/data/Menu.dart';
+// import 'package:cateringapp/frontend/widget/DialogPilihAlamat.dart';
+import 'package:cateringapp/frontend/widget/KotakMenu1.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/DialogPilihAlamat2.dart';
@@ -22,6 +23,20 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0; // Indeks tab yang dipilih
   int _selectedButtomIndex = 0;
   DBHelper _dbHelper = DBHelper();
+  List<Menu> listMenu = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  Future<void> getData() async {
+    var tmp = await _dbHelper.getMyMenu();
+    setState(() {
+      listMenu = tmp;
+    });
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -29,22 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _pageController.animateToPage(index,
           duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
     });
-  }
-
-  void testing() async {
-    _dbHelper.insertData(
-      1,
-      '{"gambar": "Telur_Sambal.png","nama": "Telur Bulat Sambal","komposisi": ["Telur Ayam","Cabe Merah","Bawang Merah","Bawang Putih","Asam Keping","Gula","Garam"],"jumlahPorsi": {"hemat": 1,"regular": 1,"extra": 2,"keluarga": 4},"satuan": "Butir","jenisBerlangganan": ["Hemat","Regular","Extra","Keluarga"]}',
-    );
-    _dbHelper.insertData(
-      2,
-      '{"gambar": "Telur_Sambal.png","nama": "Telur Bulat Sambal","komposisi": ["Telur Ayam","Cabe Merah","Bawang Merah","Bawang Putih","Asam Keping","Gula","Garam"],"jumlahPorsi": {"hemat": 1,"regular": 1,"extra": 2,"keluarga": 4},"satuan": "Butir","jenisBerlangganan": ["Hemat","Regular","Extra","Keluarga"]}',
-    );
-    _dbHelper.insertData(
-      3,
-      '{"gambar": "Telur_Sambal.png","nama": "Telur Bulat Sambal","komposisi": ["Telur Ayam","Cabe Merah","Bawang Merah","Bawang Putih","Asam Keping","Gula","Garam"],"jumlahPorsi": {"hemat": 1,"regular": 1,"extra": 2,"keluarga": 4},"satuan": "Butir","jenisBerlangganan": ["Hemat","Regular","Extra","Keluarga"]}',
-    );
-    _dbHelper.getMyMenu();
   }
 
   @override
@@ -91,7 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: <Widget>[
                 GambarCarousel(), // Memanggil widget GambarCarousel
-                ElevatedButton(onPressed: testing, child: Text('tes')),
                 Row(
                   children: List.generate(7, (index) {
                     final tabDate = _selectedDate.add(Duration(days: index));
@@ -104,107 +102,143 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       SingleChildScrollView(
                         child: Container(
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 320,
-                                decoration: BoxDecoration(
-                                    color: const Color.fromARGB(
-                                        255, 228, 228, 228)),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                          child: FutureBuilder(
+                            future: _dbHelper.getMyMenu(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              } else if (snapshot.hasData) {
+                                return Column(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 8.0),
-                                      child: Text(
-                                        "Menu Langganan Regular : 400k",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          print(snapshot.data);
+                                        },
+                                        child: Text("print")),
+                                    Container(
+                                      height: 320,
+                                      decoration: BoxDecoration(
+                                          color: const Color.fromARGB(
+                                              255, 228, 228, 228)),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0),
+                                            child: Text(
+                                              "Menu Langganan regular : 400k",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 20.0),
+                                              // child: Text("tes"),
+                                              child: Row(
+                                                children: List.generate(
+                                                  snapshot.data!.length,
+                                                  (index) => KotakMenu1(
+                                                    menu: snapshot.data![index],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                    SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 20.0),
-                                        child: reguler(),
+                                    Divider(
+                                      height: 20,
+                                      color: Colors.black,
+                                    ),
+                                    Container(
+                                      height: 320,
+                                      decoration: BoxDecoration(
+                                          color: const Color.fromARGB(
+                                              255, 228, 228, 228)),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0),
+                                            child: Text(
+                                              "Menu Langganan Premium : 600k",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 20.0),
+                                              child: Text("Tes"),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Divider(
+                                      height: 10,
+                                      color: Colors.black,
+                                    ),
+                                    Container(
+                                      height: 320,
+                                      decoration: BoxDecoration(
+                                          color: const Color.fromARGB(
+                                              255, 228, 228, 228)),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0),
+                                            child: Text(
+                                              "Menu Langganan keluarga : 1.2jt",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                          SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 20.0),
+                                              child: Text("Tes"),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
-                                ),
-                              ),
-                              Divider(
-                                height: 20,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 320,
-                                decoration: BoxDecoration(
-                                    color: const Color.fromARGB(
-                                        255, 228, 228, 228)),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 8.0),
-                                      child: Text(
-                                        "Menu Langganan Premium : 600k",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 20.0),
-                                        child: reguler(),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Divider(
-                                height: 10,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 320,
-                                decoration: BoxDecoration(
-                                    color: const Color.fromARGB(
-                                        255, 228, 228, 228)),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 8.0),
-                                      child: Text(
-                                        "Menu Langganan Keluarga : 1.2jt",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 20.0),
-                                        child: reguler(),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                                );
+                              } else {
+                                return Text('Data not available');
+                              }
+                            },
                           ),
                         ),
                       ),

@@ -38,26 +38,9 @@ class DBHelper {
           await _database!.query(_table_product);
       List<Menu> listMenu = [];
       for (var i in data) {
-        // print(i['json'].runtimeType);
         listMenu.add(Menu.fromRawJson(i['json']));
       }
       return listMenu;
-      // return data.toString();
-      // return maps;
-      // return List.generate(
-      //   maps.length,
-      //   (i) {
-      //     return Menu(
-      //       id: maps[i]['id'],
-      //       gambar: maps[i]['gambar'],
-      //       nama: maps[i]['nama'],
-      //       komposisi: maps[i]['komposisi'],
-      //       jumlahPorsi: maps[i]['jumlahPorsi'],
-      //       satuan: maps[i]['satuan'],
-      //       jenisBerlangganan: maps[i]['jenisBerlangganan'],
-      //     );
-      //   },
-      // );
     }
     return [];
   }

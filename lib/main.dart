@@ -1,6 +1,5 @@
 import 'package:cateringapp/backend/Provider/MenuProvider.dart';
 import 'package:cateringapp/frontend/InitialScreen/SplashPage.dart';
-import 'package:cateringapp/frontend/screen/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

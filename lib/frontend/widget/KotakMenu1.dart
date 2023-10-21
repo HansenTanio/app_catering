@@ -3,16 +3,13 @@ import '../../backend/data/Menu.dart';
 
 class KotakMenu1 extends StatefulWidget {
   final Menu menu;
-  final int index;
-  const KotakMenu1({super.key, required this.menu, required this.index});
+  const KotakMenu1({super.key, required this.menu});
 
   @override
   State<KotakMenu1> createState() => _KotakMenu1State();
 }
 
 class _KotakMenu1State extends State<KotakMenu1> {
-  late Menu menu;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,7 +31,8 @@ class _KotakMenu1State extends State<KotakMenu1> {
                 topRight: Radius.circular(10.0), // Radius sudut atas kanan
               ),
               child: Image.asset(
-                'images/menu/${menu.gambar}',
+                'assets/images/kotak_extra.png',
+                // 'images/menu/${widget.menu.gambar}',
                 fit: BoxFit.cover,
               ),
             ),
@@ -44,7 +42,7 @@ class _KotakMenu1State extends State<KotakMenu1> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "${menu.nama}",
+                      "${widget.menu.nama}",
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -69,7 +67,7 @@ class _KotakMenu1State extends State<KotakMenu1> {
                             ),
                           ),
                           TextSpan(
-                            text: '${menu.komposisi.join(", ")}',
+                            text: '${widget.menu.komposisi.join(", ")}',
                             style: TextStyle(
                               fontSize: 10,
                               color: Colors.white,
@@ -93,7 +91,7 @@ class _KotakMenu1State extends State<KotakMenu1> {
                             ),
                           ),
                           TextSpan(
-                            text: '1 , ${menu.satuan}',
+                            text: '1 , ${widget.menu.satuan}',
                             style: TextStyle(
                               fontSize: 10,
                               color: Colors.white,

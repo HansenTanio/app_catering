@@ -21,8 +21,8 @@ class _LoginPageState extends State<LoginPage> {
   late SharedPreferences prefs;
   final String _keyUsername = "username";
   final String _keyPassword = "password";
-  String? _usernameValue;
-  String? _passwordValue;
+  // String? _usernameValue;
+  // String? _passwordValue;
 
   Future<void> _setLogin(String? username, String? password) async {
     prefs = await SharedPreferences.getInstance();
