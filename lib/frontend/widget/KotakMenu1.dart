@@ -3,13 +3,16 @@ import '../../backend/data/Menu.dart';
 
 class KotakMenu1 extends StatefulWidget {
   final Menu menu;
-  const KotakMenu1({super.key, required this.menu});
+  final int index;
+  const KotakMenu1({super.key, required this.menu, required this.index});
 
   @override
   State<KotakMenu1> createState() => _KotakMenu1State();
 }
 
 class _KotakMenu1State extends State<KotakMenu1> {
+  late Menu menu;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,7 +34,7 @@ class _KotakMenu1State extends State<KotakMenu1> {
                 topRight: Radius.circular(10.0), // Radius sudut atas kanan
               ),
               child: Image.asset(
-                'images/menu/${widget.menu.gambar}',
+                'images/menu/${menu.gambar}',
                 fit: BoxFit.cover,
               ),
             ),
@@ -41,7 +44,7 @@ class _KotakMenu1State extends State<KotakMenu1> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "${widget.menu.nama}",
+                      "${menu.nama}",
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -66,7 +69,7 @@ class _KotakMenu1State extends State<KotakMenu1> {
                             ),
                           ),
                           TextSpan(
-                            text: '${widget.menu.komposisi.join(", ")}',
+                            text: '${menu.komposisi.join(", ")}',
                             style: TextStyle(
                               fontSize: 10,
                               color: Colors.white,
@@ -90,7 +93,7 @@ class _KotakMenu1State extends State<KotakMenu1> {
                             ),
                           ),
                           TextSpan(
-                            text: '1 , ${widget.menu.satuan}',
+                            text: '1 , ${menu.satuan}',
                             style: TextStyle(
                               fontSize: 10,
                               color: Colors.white,

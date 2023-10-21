@@ -68,18 +68,12 @@ class _LoginPageState extends State<LoginPage> {
     if (form != null && form.validate()) {
       form.save();
       await _setLogin(_usernameController.text, _passwordController.text);
-      print("Sesudah _setLogin");
-      print(_usernameValue);
-      print(_passwordValue);
 
       if (_validatePassword(_passwordController.text)) {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MyHomePage(
-                // username: _usernameController.text,
-                // password: _passwordController.text,
-                ),
+            builder: (context) => MyHomePage(),
           ),
         );
       }

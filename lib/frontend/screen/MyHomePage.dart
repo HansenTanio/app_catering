@@ -1,3 +1,4 @@
+import 'package:cateringapp/backend/data/Database.dart';
 import 'package:cateringapp/frontend/widget/DialogPilihAlamat.dart';
 import 'package:cateringapp/frontend/widget/Pengkategorian.dart';
 import 'package:flutter/material.dart';
@@ -20,12 +21,30 @@ class _MyHomePageState extends State<MyHomePage> {
   DateTime _selectedDate = DateTime.now(); // Tanggal yang dipilih
   int _selectedIndex = 0; // Indeks tab yang dipilih
   int _selectedButtomIndex = 0;
+  DBHelper _dbHelper = DBHelper();
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedButtomIndex = index;
       _pageController.animateToPage(index,
           duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
     });
+  }
+
+  void testing() async {
+    _dbHelper.insertData(
+      1,
+      '{"gambar": "Telur_Sambal.png","nama": "Telur Bulat Sambal","komposisi": ["Telur Ayam","Cabe Merah","Bawang Merah","Bawang Putih","Asam Keping","Gula","Garam"],"jumlahPorsi": {"hemat": 1,"regular": 1,"extra": 2,"keluarga": 4},"satuan": "Butir","jenisBerlangganan": ["Hemat","Regular","Extra","Keluarga"]}',
+    );
+    _dbHelper.insertData(
+      2,
+      '{"gambar": "Telur_Sambal.png","nama": "Telur Bulat Sambal","komposisi": ["Telur Ayam","Cabe Merah","Bawang Merah","Bawang Putih","Asam Keping","Gula","Garam"],"jumlahPorsi": {"hemat": 1,"regular": 1,"extra": 2,"keluarga": 4},"satuan": "Butir","jenisBerlangganan": ["Hemat","Regular","Extra","Keluarga"]}',
+    );
+    _dbHelper.insertData(
+      3,
+      '{"gambar": "Telur_Sambal.png","nama": "Telur Bulat Sambal","komposisi": ["Telur Ayam","Cabe Merah","Bawang Merah","Bawang Putih","Asam Keping","Gula","Garam"],"jumlahPorsi": {"hemat": 1,"regular": 1,"extra": 2,"keluarga": 4},"satuan": "Butir","jenisBerlangganan": ["Hemat","Regular","Extra","Keluarga"]}',
+    );
+    _dbHelper.getMyMenu();
   }
 
   @override
@@ -72,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: <Widget>[
                 GambarCarousel(), // Memanggil widget GambarCarousel
+                ElevatedButton(onPressed: testing, child: Text('tes')),
                 Row(
                   children: List.generate(7, (index) {
                     final tabDate = _selectedDate.add(Duration(days: index));
