@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+// import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 
 class DialogPilihAlamat2 extends StatefulWidget {
   const DialogPilihAlamat2({super.key});
@@ -23,21 +23,21 @@ class _DialogPilihAlamat2State extends State<DialogPilihAlamat2> {
             //     child: Text(address),
             //   ),
             // ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height - 5,
-              child: OpenStreetMapSearchAndPick(
-                  center: LatLong(23, 89),
-                  buttonColor: Colors.blue,
-                  buttonText: 'Set Current Location',
-                  onPicked: (pickedData) {
-                    setState(() {
-                      pilihAlamat = pickedData.addressName;
-                    });
-                    print(pickedData.latLong.latitude);
-                    print(pickedData.latLong.longitude);
-                    print(pickedData.address);
-                  }),
-            )
+            // SizedBox(
+            //   height: MediaQuery.of(context).size.height - 5,
+            //   child: OpenStreetMapSearchAndPick(
+            //       center: LatLong(23, 89),
+            //       buttonColor: Colors.blue,
+            //       buttonText: 'Set Current Location',
+            //       onPicked: (pickedData) {
+            //         setState(() {
+            //           pilihAlamat = pickedData.addressName;
+            //         });
+            //         print(pickedData.latLong.latitude);
+            //         print(pickedData.latLong.longitude);
+            //         print(pickedData.address);
+            //       }),
+            // )
           ],
         ),
       )),

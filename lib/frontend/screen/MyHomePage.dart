@@ -1,6 +1,6 @@
 import 'package:cateringapp/backend/data/Database.dart';
 import 'package:cateringapp/backend/data/models/Menu.dart';
-import 'package:cateringapp/backend/data/models/MasakanRandom.dart';
+// import 'package:cateringapp/backend/data/models/MasakanRandom.dart';
 // import 'package:cateringapp/frontend/widget/DialogPilihAlamat.dart';
 import 'package:cateringapp/frontend/widget/KotakMenu1.dart';
 import 'package:cateringapp/frontend/widget/MasakanRandomPage.dart';

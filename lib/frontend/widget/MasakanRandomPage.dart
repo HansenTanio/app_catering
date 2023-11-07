@@ -11,7 +11,6 @@ class MasakanRandomPage extends StatefulWidget {
 }
 
 class _MasakanRandomPageState extends State<MasakanRandomPage> {
-  RandomMeal _randomMeal = RandomMeal(meals: []);
   Future<RandomMeal> fetch() async {
     try {
       var response = await http
@@ -28,14 +27,11 @@ class _MasakanRandomPageState extends State<MasakanRandomPage> {
   @override
   void initState() {
     super.initState();
-    getData();
   }
 
-  Future<void> getData() async {
+  Future<RandomMeal> getData() async {
     var tmp = await fetch();
-    setState(() {
-      _randomMeal = tmp;
-    });
+    return tmp;
   }
 
   @override
@@ -50,12 +46,6 @@ class _MasakanRandomPageState extends State<MasakanRandomPage> {
         } else if (snapshot.hasData) {
           return Column(
             children: [
-              // ElevatedButton(
-              //   onPressed: () {
-              //     print(snapshot.data!.meals[0]["strMeal"]);
-              //   },
-              //   child: Text("Tes"),
-              // ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Container(

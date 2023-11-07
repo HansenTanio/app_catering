@@ -7,9 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:469090781931:android:bfa87ed9db5b6cc12d8cae",
+        "mobilesdk_app_id": "1:469090781931:android:011915637be33fc72d8cae",
         "android_client_info": {
           "package_name": "com.example.app_catering"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQExJjwzWhd1OfMLaXvDCzHnr0tGuwSrQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469090781931:android:b564da557b391d632d8cae",
+        "android_client_info": {
+          "package_name": "com.example.taste_troop"
         }
       },
       "oauth_client": [],

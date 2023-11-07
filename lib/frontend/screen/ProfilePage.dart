@@ -51,7 +51,9 @@ class _ProfilePageState extends State<ProfilePage> {
               'Nama Pengguna',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            subtitle: Text(_usernameValue.toString()),
+            subtitle: Text(
+              "${_usernameValue.toString().replaceAll("@gmail.com", "")}",
+            ),
           ),
           Divider(),
           ListTile(
@@ -60,8 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
               'Email',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            subtitle: Text(
-                "${_usernameValue.toString().toLowerCase().replaceAll(" ", "")}@gmail.com"),
+            subtitle: Text(_usernameValue.toString()),
           ),
           SizedBox(height: 16.0),
           ElevatedButton(
