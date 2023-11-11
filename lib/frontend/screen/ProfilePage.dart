@@ -1,3 +1,4 @@
+import 'package:cateringapp/backend/data/models/auth.dart';
 import 'package:cateringapp/frontend/InitialScreen/FirstPage.dart';
 import 'package:flutter/material.dart';
 import 'SettingPage.dart';
@@ -15,6 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
   final String _keyUsername = "username";
   final String _keyPassword = "password";
   String? _usernameValue;
+  final Authentication _auth = Authentication();
 
   void _loadData() async {
     prefs = await SharedPreferences.getInstance();
@@ -31,6 +33,7 @@ class _ProfilePageState extends State<ProfilePage> {
     prefs = await SharedPreferences.getInstance();
     prefs.setString(_keyUsername, "");
     prefs.setString(_keyPassword, "");
+    _auth.signOut();
     Navigator.push(
       context,
       MaterialPageRoute(
