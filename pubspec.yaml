@@ -36,7 +36,7 @@ dependencies:
     sdk: flutter
   http: ^1.1.0
   intl: ^0.18.1
-  # open_street_map_search_and_pick: ^0.1.0
+  path_provider: ^2.1.1
   provider: ^6.0.5
   shared_preferences: ^2.2.1
   sqflite: ^2.3.0
@@ -60,6 +60,7 @@ flutter:
   assets:
     - assets/logo/
     - assets/images/
+    - assets/database/CateringApp.db
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
