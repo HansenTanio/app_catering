@@ -5,11 +5,11 @@ class Authentication {
 
   Future<void> login(String email, String password) async {
     try {
-      UserCredential result = await _auth.signInWithEmailAndPassword(
+      _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      print('Login successful: ${result.user!.uid}');
+      print('Login successful');
     } catch (e) {
       print(e.toString());
     }
@@ -17,11 +17,11 @@ class Authentication {
 
   Future<void> register(String email, String password) async {
     try {
-      UserCredential result = await _auth.createUserWithEmailAndPassword(
+      _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      print('Register successful: ${result.user!.uid}');
+      print('Register successful');
     } catch (e) {
       print(e.toString());
     }
